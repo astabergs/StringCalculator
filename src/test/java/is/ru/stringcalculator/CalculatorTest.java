@@ -29,4 +29,9 @@ public class CalculatorTest {
     	assertEquals(6, Calculator.add("1,2,3"));
     }
 
+    @Test
+    public void testNewLineChar() {
+    	assertEquals(10, Calculator.add("4\n6"));
+    }
+
 }
