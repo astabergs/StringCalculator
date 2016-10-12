@@ -4,12 +4,20 @@ public class Calculator {
 
 	public static int add(String text){
 
-		text = checkForNewLineChar(text);
-
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains(",")){
+		text = checkForNewLineChar(text);
+
+		String[] numbers = splitNumbers(text);
+		String sum = "";
+		for (String n : numbers) {
+			if (toInt(n)<=1000)
+				sum = sum + n + ",";
+		}
+		text = sum;
+		
+		if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
 		else

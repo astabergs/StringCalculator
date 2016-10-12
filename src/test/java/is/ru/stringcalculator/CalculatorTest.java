@@ -34,4 +34,11 @@ public class CalculatorTest {
     	assertEquals(10, Calculator.add("4\n6"));
     }
 
+    @Test
+    public void removeNumberOver1000(){
+    	assertEquals(2, Calculator.add("1001,2"));
+    }
+
+
+
 }
