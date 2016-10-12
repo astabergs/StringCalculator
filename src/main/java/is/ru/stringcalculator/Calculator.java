@@ -8,10 +8,11 @@ public class Calculator {
 			return 0;
 		}
 		text = checkForNewLineChar(text);
+		text = changeDelimeters(text);
 		text = checkForLargeNumbers(text);
-		
+
 		if(text.contains(",")){
-			return sum(splitNumbers(text));
+			return sum(splitNumbers(text)); 
 		}
 		else
 			return 1;
@@ -30,6 +31,15 @@ public class Calculator {
 			text=text.replace("\n",",");
 		}
 		return text;
+	}
+	private static String changeDelimeters(String text) {
+		if(text.contains("//")) {
+			String delimeter = text.substring(2,3);
+			text = text.substring(4);
+			text = text.replace(delimeter, ",");
+		}
+		return text;
+		
 	}
 
 	private static String checkForLargeNumbers(String text){

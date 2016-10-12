@@ -25,7 +25,7 @@ public class CalculatorTest {
 	}	
 
 	@Test
-    public void testMultipleNumbers(){
+    public void testMultipleNumbers() {
     	assertEquals(6, Calculator.add("1,2,3"));
     }
 
@@ -35,10 +35,13 @@ public class CalculatorTest {
     }
 
     @Test
-    public void removeNumberOver1000(){
+    public void testremoveNumberOver1000() {
     	assertEquals(2, Calculator.add("1001,2"));
     }
 
-
+    @Test
+    public void testDelimeter() {
+    	assertEquals(3, Calculator.add("//;\n1;2"));
+    }
 
 }
