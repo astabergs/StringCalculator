@@ -33,7 +33,7 @@ public class Calculator {
 		return text;
 	}
 	private static String changeDelimeters(String text) {
-		if(text.contains("//")) {
+		if(text.startsWith("//")) {
 			String delimeter = text.substring(2,3);
 			text = text.substring(4);
 			text = text.replace(delimeter, ",");
