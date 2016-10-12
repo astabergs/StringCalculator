@@ -8,14 +8,7 @@ public class Calculator {
 			return 0;
 		}
 		text = checkForNewLineChar(text);
-
-		String[] numbers = splitNumbers(text);
-		String sum = "";
-		for (String n : numbers) {
-			if (toInt(n)<=1000)
-				sum = sum + n + ",";
-		}
-		text = sum;
+		text = checkForLargeNumbers(text);
 		
 		if(text.contains(",")){
 			return sum(splitNumbers(text));
@@ -37,6 +30,16 @@ public class Calculator {
 			text=text.replace("\n",",");
 		}
 		return text;
+	}
+
+	private static String checkForLargeNumbers(String text){
+		String[] numbers = splitNumbers(text);
+		String sum = "";
+		for (String n : numbers) {
+			if (toInt(n)<=1000)
+				sum = sum + n + ",";
+		}
+		return sum;
 	}
       
     private static int sum(String[] numbers){
