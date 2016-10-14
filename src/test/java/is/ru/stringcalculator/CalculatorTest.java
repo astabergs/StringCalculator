@@ -1,7 +1,9 @@
 package is.ru.stringcalculator;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.Rule;
@@ -62,32 +64,14 @@ public class CalculatorTest {
     	assertEquals(1,Calculator.add("10001,50000,1"));
     }
 
-    /*@Test
-    public void testOneNegative() {
-    	Boolean exception = false;
-    	try {
-    		Calculator.add("-2");
-    	}
-    	catch (IllegalArgumentException e){
-    		exception=true;
-    	}
-    	assertTrue(exception);
-    	assertEquals("Negatives not allowed: -2", e.getMessage());
-    }*/
+    @Test
+    public void testDelimeterAndBigNumber() {
+    	assertEquals(10, Calculator.add("//|\n10|10001"));
+    }
 
-   /* @Test (excpected = IllegalArgumentException.class)
-    public final void testIfExceptionThrown() {
-    	Calulator.add("-2");
-    }*/
+	@Test(expected = IllegalArgumentException.class)
+	public final void TestNegativeNumberThrowException() {	
+    	Calculator.add("2,-4,3,-5");
+	}
 
-    /*@Rule
-    	public ExpectedException thrown = ExpectedException.none();
-
-    	@Test 
-    	public void throwsExceptionOneNegative() {
-    		thrown.expect(IllegalArgumentException.class);
-    		thrown.expectMessage(equalTo("Negatives not allowed: -2"));
-
-    		Calculator.add("-2,1");
-    	}*/
 }

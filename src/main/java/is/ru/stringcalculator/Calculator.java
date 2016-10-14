@@ -10,7 +10,9 @@ public class Calculator {
 		text = checkForNewLineChar(text);
 		text = changeDelimeters(text);
 		text = checkForLargeNumbers(text);
-
+		if(text.contains("-")){
+			throw new IllegalArgumentException();
+		}
 		if(text.contains(",")){
 			return sum(splitNumbers(text)); 
 		}
