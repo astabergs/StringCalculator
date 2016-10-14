@@ -56,11 +56,15 @@ public class Calculator {
     private static void checkForNegativeNumbers(String text){
     	String[] nums = splitNumbers(text);
     	String negs = "";
+    	int sum = 0;
+
 
     	for (String n : nums) {
-    		if (n.contains("-"))
-    			negs = negs + n + ", ";
+    		if (n.contains("-")) {
+    			negs = negs + n +", ";
+    		}
     	}
+    	negs = negs.substring(0, negs.length()-2);
 
     	if (text.contains("-")) {
     		throw new IllegalArgumentException("Negatives not allowed: " + negs);

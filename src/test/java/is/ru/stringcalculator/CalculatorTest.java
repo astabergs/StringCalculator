@@ -83,7 +83,7 @@ public class CalculatorTest {
         	exception = e;
     	}
     	assertNotNull(exception);
-    	assertEquals("Negatives not allowed: -2, ", exception.getMessage());
+    	assertEquals("Negatives not allowed: -2", exception.getMessage());
 	}
 
 	@Test
@@ -96,6 +96,6 @@ public class CalculatorTest {
         	exception = e;
     	}
     	assertNotNull(exception);
-    	assertEquals("Negatives not allowed: -2, -3, ", exception.getMessage());
+    	assertEquals("Negatives not allowed: -2, -3", exception.getMessage());
 	}
 }
