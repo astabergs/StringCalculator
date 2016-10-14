@@ -98,4 +98,17 @@ public class CalculatorTest {
     	assertNotNull(exception);
     	assertEquals("Negatives not allowed: -2, -3", exception.getMessage());
 	}
+
+	@Test
+	public final void TestNegativeNumbersAndDelimAndBigNumbers() {
+		IllegalArgumentException exception = null;
+    	try {
+    	    Calculator.add("//|\n-10|5|2|-3|50000");
+    	} 
+    	catch (IllegalArgumentException e) {
+        	exception = e;
+    	}
+    	assertNotNull(exception);
+    	assertEquals("Negatives not allowed: -10, -3", exception.getMessage());
+	}
 }
