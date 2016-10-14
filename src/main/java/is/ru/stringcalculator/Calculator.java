@@ -10,9 +10,8 @@ public class Calculator {
 		text = checkForNewLineChar(text);
 		text = changeDelimeters(text);
 		text = checkForLargeNumbers(text);
-		if(text.contains("-")){
-			text = text.substring(1,2);
-			throw new IllegalArgumentException("Negatives not allowed: -" + text);
+		if (text.contains("-")) {
+			checkForNegativeNumbers(text);
 		}
 		if(text.contains(",")){
 			return sum(splitNumbers(text)); 
@@ -54,7 +53,19 @@ public class Calculator {
 		}
 		return sum;
 	}
-      
+    private static void checkForNegativeNumbers(String text){
+    	String[] nums = splitNumbers(text);
+    	String negs = "";
+
+    	for (String n : nums) {
+    		if (n.contains("-"))
+    			negs = negs + n + ", ";
+    	}
+
+    	if (text.contains("-")) {
+    		throw new IllegalArgumentException("Negatives not allowed: " + negs);
+    	}
+    }
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){

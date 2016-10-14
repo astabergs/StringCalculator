@@ -83,6 +83,19 @@ public class CalculatorTest {
         	exception = e;
     	}
     	assertNotNull(exception);
-    	assertEquals("Negatives not allowed: -2", exception.getMessage());
+    	assertEquals("Negatives not allowed: -2, ", exception.getMessage());
+	}
+
+	@Test
+	public final void TestTwoNegativeNumbersThrowException() {
+    	IllegalArgumentException exception = null;
+    	try {
+    	    Calculator.add("-2,1,-3,5");
+    	} 
+    	catch (IllegalArgumentException e) {
+        	exception = e;
+    	}
+    	assertNotNull(exception);
+    	assertEquals("Negatives not allowed: -2, -3, ", exception.getMessage());
 	}
 }
