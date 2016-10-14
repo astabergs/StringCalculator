@@ -57,6 +57,11 @@ public class CalculatorTest {
     	assertEquals(9, Calculator.add("10002,5\n4"));
     }
 
+    @Test
+    public void testManyBigNumbers() {
+    	assertEquals(1,Calculator.add("10001,50000,1"));
+    }
+
     /*@Test
     public void testOneNegative() {
     	Boolean exception = false;
