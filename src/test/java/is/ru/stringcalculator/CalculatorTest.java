@@ -52,6 +52,11 @@ public class CalculatorTest {
     	assertEquals(3+5+6+7+19+100, Calculator.add("3,5,6,7,19,100"));
     }
 
+    @Test
+    public void testNewlineAndbigNumbers() {
+    	assertEquals(9, Calculator.add("10002,5\n4"));
+    }
+
     /*@Test
     public void testOneNegative() {
     	Boolean exception = false;
