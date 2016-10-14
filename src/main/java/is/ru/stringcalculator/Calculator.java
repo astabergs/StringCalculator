@@ -11,7 +11,8 @@ public class Calculator {
 		text = changeDelimeters(text);
 		text = checkForLargeNumbers(text);
 		if(text.contains("-")){
-			throw new IllegalArgumentException();
+			text = text.substring(1,2);
+			throw new IllegalArgumentException("Negatives not allowed: -" + text);
 		}
 		if(text.contains(",")){
 			return sum(splitNumbers(text)); 
